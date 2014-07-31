@@ -1,0 +1,2 @@
+# Morse Code Parser in Haskell
+This repository is code excerpts from [The Monad Reader, Issue 14](http://themonadreader.files.wordpress.com/2009/07/issue142.pdf) with annotations by myself as I journey to learn Haskell.
