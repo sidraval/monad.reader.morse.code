@@ -57,17 +57,23 @@ e ('.':ds) = i ds
 e ('-':ds) = a ds
 e []       = 'E'
 -- where the functions i and a are defined similarly. Obviously defining all of these functions would suck.
+-- In the interest of making this compile,
+a = undefined
+i = undefined
 
 -- A combinator!
 branch :: Char
           -> (MorseCode -> Char)
           -> (MorseCode -> Char)
           -> (MorseCode -> Char)
--- Branch returns a function, since x and y are functions/nodes in the call graph.
-branch c x y = \code case code of
+-- The branch returns a function, since x and y are functions/nodes in the call graph.
+branch c x y = \code -> case code of
   '.':ds -> x ds
   '-':ds -> y ds
   []     -> c
+
+-- The leaf function should never be called.
+leaf = undefined
 
 -- We can then generate our tree using the combinator as follows.
 -- By taking the head, we're getting a function that goes from MorseCode -> Char, i.e.
